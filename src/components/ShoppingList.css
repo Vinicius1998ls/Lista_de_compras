@@ -7,12 +7,12 @@ body {
     justify-content: center;
 }
 
-.list-itens {
+.list-items {
     display: flex;
     flex-direction: column;
 }
 
-.itens {
+.items {
     display: grid;
     grid-template-columns: 4fr 2fr;
     width: 600px;
@@ -40,4 +40,39 @@ body {
     width: 15px;
     border: 2px black solid;
     border-radius: 15px;
+}
+
+/* inputItem */
+
+.new-item {
+    display: grid;
+    width: 600px;
+    height: 30px;
+    grid-template-columns: 4fr 1fr;
+    border: 2px black solid;
+    border-radius: 15px;
+    margin: 20px 10px;
+}
+
+input {
+    height: 20px;
+    margin-left: 15px;
+    margin-top: 3px;
+}
+
+.button-add {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 15px;
+    
+}
+
+.new-item i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px black solid;
+    border-radius: 15px;
+    width: 20px;   
 }
