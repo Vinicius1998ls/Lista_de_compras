@@ -4,16 +4,13 @@ import './ShoppingList.css'
 
 export default function ShoppingList() { 
 
-    const [itemsList, setItemsList] = useState([
-          {id: 1, item:'teste'},
-          {id: 2, item:'teste2'}
-        ])
+    const [itemsList, setItemsList] = useState([])
     
     function createItem() {
       return (itemsList.map(item => {
         return (
           <>
-          <li id={item.id} className="items">
+          <li id={item.id} key={item.id} className="items">
             <div className="name-item">
               <label>{item.item}</label>
             </div>
@@ -31,7 +28,7 @@ export default function ShoppingList() {
         return (
             <>
                 <div className="new-item">
-                    <input id="save-item" type="text" placeholder="Novo item..." />
+                    <input id="save-item" type="text" placeholder="Novo item..." onKeyDown={enter} />
                     <div className="button-add">
                         <i onClick={save}>+</i>
                     </div>
@@ -40,13 +37,35 @@ export default function ShoppingList() {
         )
     }
 
-    function save() {   
-        const newItem = document.getElementById('save-item').value
+    function enter(event) {
+      if(event.keyCode === 13) {
+        save()
+      }
+    }
+
+    function save() {
+        const input = document.getElementById('save-item')    
+        const newItem = input.value
+
+        function checkId() {
+          let newId = 1
+          let idList = itemsList.map(item => item.id)
+
+          while (idList.includes(newId)) {
+            newId += 1
+          }
+
+          return newId
+        }
+
+        const idValue = checkId()
             
         setItemsList([
             ...itemsList,
-            {id: 3, item: newItem}]
-            )     
+            {id: idValue, item: newItem}]
+        )
+        
+        input.value = ''
     }
     
     return (
