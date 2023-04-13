@@ -9,16 +9,20 @@ export default function ShoppingList() {
     function createItem() {
       return (itemsList.map(item => {
         return (
-          <>
-          <li id={item.id} key={item.id} className="items">
-            <div className="name-item">
-              <label>{item.item}</label>
-            </div>
-            <div className="div-icons">
-              <i>V</i>
-              <i>X</i>
-            </div>
-          </li>
+          <>            
+            <li id={item.id} key={item.id} className="items">
+              <div className="name-item">
+                {item.checked ? <label><del>{item.item}</del></label> : 
+                <label>{item.item}</label>}                
+              </div>
+              <div className="div-icons">
+                {item.checked ? <i onClick={() => remove(item.id)}>X</i> : 
+                <>
+                    <i onClick={() => check(item.id)}>V</i>
+                    <i onClick={() => remove(item.id)}>X</i>
+                </>}
+              </div>
+            </li>
           </>
         );
       }));
@@ -66,6 +70,22 @@ export default function ShoppingList() {
         )
         
         input.value = ''
+    }
+    
+    function check(id) {
+      setItemsList(
+        itemsList.map(item => {
+          if(item.id === id) {
+            return {...item, checked: true}
+          }
+          return item
+        })
+      )
+    }
+
+    function remove(id) {
+        setItemsList(itemsList.filter(item =>
+            item.id !== id))
     }
     
     return (
