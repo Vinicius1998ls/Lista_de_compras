@@ -42,8 +42,6 @@ body {
     border-radius: 15px;
 }
 
-/* inputItem */
-
 .new-item {
     display: grid;
     width: 600px;
@@ -75,4 +73,34 @@ input {
     border: 2px black solid;
     border-radius: 15px;
     width: 20px;   
+}
+
+@media (max-width: 1200px) {
+    .items {
+        width: 700px;
+    }
+
+    .new-item {
+        width: 700px;
+    }
+}
+
+@media (max-width: 800px) {
+    .items {
+        width: 600px;
+    }
+
+    .new-item {
+        width: 600px;
+    }
+}
+
+@media (max-width: 650px) {
+    .items {
+        width: 300px;
+    }
+
+    .new-item {
+        width: 300px;
+    }
 }
