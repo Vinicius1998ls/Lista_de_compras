@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Lista_de_compras/static/css/main.9becdd1e.css",
+    "main.js": "/Lista_de_compras/static/js/main.dadef768.js",
+    "index.html": "/Lista_de_compras/index.html",
+    "main.9becdd1e.css.map": "/Lista_de_compras/static/css/main.9becdd1e.css.map",
+    "main.dadef768.js.map": "/Lista_de_compras/static/js/main.dadef768.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9becdd1e.css",
+    "static/js/main.dadef768.js"
+  ]
+}
