@@ -1,6 +1,10 @@
 import { useState } from "react";
 
 import './ShoppingList.css'
+import './fonts.css'
+
+import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faCheck, faXmark, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 export default function ShoppingList() { 
 
@@ -16,10 +20,12 @@ export default function ShoppingList() {
                 <label>{item.item}</label>}                
               </div>
               <div className="div-icons">
-                {item.checked ? <i onClick={() => remove(item.id)}>X</i> : 
+                {item.checked ? 
+                    <FontAwesomeIcon icon={faXmark} className="remove" onClick={() => remove(item.id)} /> : 
                 <>
-                    <i onClick={() => check(item.id)}>V</i>
-                    <i onClick={() => remove(item.id)}>X</i>
+                    <FontAwesomeIcon icon={faCheck} className="check" onClick={() => check(item.id)} />
+                    <FontAwesomeIcon icon={faXmark} className="remove" onClick={() => remove(item.id)} />
+                    
                 </>}
               </div>
             </li>
@@ -34,7 +40,7 @@ export default function ShoppingList() {
                 <div className="new-item">
                     <input id="save-item" type="text" placeholder="Novo item..." onKeyDown={enter} />
                     <div className="button-add">
-                        <i onClick={save}>+</i>
+                        <i><FontAwesomeIcon icon={faPlus} onClick={save} /></i>
                     </div>
                 </div>
             </>
