@@ -1,21 +1,9 @@
 import { useState } from "react";
 
 import './ShoppingList.css'
-import './fonts.css'
-import styled from "styled-components";
 
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faCheck, faXmark, faPlus } from '@fortawesome/free-solid-svg-icons'
-
-const ItemsNamesFont = styled.label`
-  font-family: 'Amatic SC', cursive;
-  font-weight: 400;
-`
-
-const InputFont = styled.input`
-  font-family: 'Amatic SC', cursive;
-  font-weight: 400;
-`
 
 export default function ShoppingList() { 
 
@@ -27,8 +15,8 @@ export default function ShoppingList() {
           <>            
             <li id={item.id} key={item.id} className="items">
               <div className="name-item">
-                {item.checked ? <ItemsNamesFont><del>{item.item}</del></ItemsNamesFont> : 
-                <ItemsNamesFont>{item.item}</ItemsNamesFont>}                
+                {item.checked ? <label><del>{item.item}</del></label> : 
+                <label>{item.item}</label>}                
               </div>
               <div className="div-icons">
                 {item.checked ? 
@@ -48,9 +36,8 @@ export default function ShoppingList() {
     function inputItem() {
         return (
             <>
-                <div className="new-item">
-                    <InputFont id="save-item" type="text" placeholder="Novo item..." onKeyDown={enter} />
-                    
+                <div className="new-item">                    
+                    <input id="save-item" type="text" placeholder="Novo item..." onKeyDown={enter} />
                     <div className="button-add">
                         <FontAwesomeIcon icon={faPlus} onClick={save} />
                     </div>
