@@ -10,6 +10,7 @@ import { faCheck, faXmark, faPlus } from '@fortawesome/free-solid-svg-icons'
 export default function ShoppingList() { 
 
     const [itemsList, setItemsList] = useState([])
+    const [enable, setEnable] = useState(false)
     
     function createItem() {
       return (itemsList.map(item => {
@@ -38,9 +39,11 @@ export default function ShoppingList() {
         return (
             <>
                 <div className="new-item">                    
-                    <input id="save-item" type="text" maxLength={22} placeholder="Novo item..." onKeyDown={enter} />
+                    <input id="save-item" type="text" maxLength={22} 
+                    placeholder="Novo item..." onKeyDown={enter} onInput={handleChangeEnable} />
                     <div className="button-add">
-                        <FontAwesomeIcon icon={faPlus} onClick={save} />
+                        {enable ? <FontAwesomeIcon icon={faPlus} onClick={save} style={{color: '#CE050F'}} /> :
+                        <FontAwesomeIcon icon={faPlus} style={{color: '#494949'}} />}                        
                     </div>
                 </div>
             </>
@@ -57,25 +60,38 @@ export default function ShoppingList() {
         const input = document.getElementById('save-item')    
         const newItem = input.value
 
-        function checkId() {
-          let newId = 1
-          let idList = itemsList.map(item => item.id)
-
-          while (idList.includes(newId)) {
-            newId += 1
-          }
-
-          return newId
-        }
-
-        const idValue = checkId()
+        if(newItem.replace(/\s+/g, '') !== '') {
+            function checkId() {
+              let newId = 1
+              let idList = itemsList.map(item => item.id)
+    
+              while (idList.includes(newId)) {
+                newId += 1
+              }
+    
+              return newId
+            }
+    
+            const idValue = checkId()
+                
+            setItemsList([
+                ...itemsList,
+                {id: idValue, item: newItem, checked: false}]
+            )
             
-        setItemsList([
-            ...itemsList,
-            {id: idValue, item: newItem, checked: false}]
-        )
+            input.value = ''
+            handleChangeEnable()
+        }
+    }
+
+    function handleChangeEnable() {
+        const inputItem = document.getElementById('save-item').value
         
-        input.value = ''
+        if(inputItem.replace(/\s+/g, '') !== '') {
+            setEnable(true)            
+        } else {
+            setEnable(false)
+        }
     }
     
     function check(id) {
