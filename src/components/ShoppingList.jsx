@@ -38,7 +38,7 @@ export default function ShoppingList() {
         return (
             <>
                 <div className="new-item">                    
-                    <input id="save-item" type="text" maxLength={25} placeholder="Novo item..." onKeyDown={enter} />
+                    <input id="save-item" type="text" maxLength={22} placeholder="Novo item..." onKeyDown={enter} />
                     <div className="button-add">
                         <FontAwesomeIcon icon={faPlus} onClick={save} />
                     </div>

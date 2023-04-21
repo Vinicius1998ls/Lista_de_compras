@@ -1,0 +1,14 @@
+.normal-name {
+    font-size: 1.5rem;
+}
+
+.big-name {
+    font-size: 1.5rem;
+}
+
+@Media (max-width: 600px) {
+    .big-name {
+        font-size: 1.2rem;
+        transform: translateY(5px);
+    }
+}
