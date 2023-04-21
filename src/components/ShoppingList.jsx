@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import ItemName from "./ItemName";
+
 import './ShoppingList.css'
 
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -11,12 +13,11 @@ export default function ShoppingList() {
     
     function createItem() {
       return (itemsList.map(item => {
-        return (
+        return (          
           <>            
             <li id={item.id} key={item.id} className="items">
               <div className="name-item">
-                {item.checked ? <label><del>{item.item}</del></label> : 
-                <label>{item.item}</label>}                
+                <ItemName name={item.item} check={item.checked} ></ItemName>             
               </div>
               <div className="div-icons">
                 {item.checked ? 
@@ -37,7 +38,7 @@ export default function ShoppingList() {
         return (
             <>
                 <div className="new-item">                    
-                    <input id="save-item" type="text" placeholder="Novo item..." onKeyDown={enter} />
+                    <input id="save-item" type="text" maxLength={25} placeholder="Novo item..." onKeyDown={enter} />
                     <div className="button-add">
                         <FontAwesomeIcon icon={faPlus} onClick={save} />
                     </div>
@@ -71,7 +72,7 @@ export default function ShoppingList() {
             
         setItemsList([
             ...itemsList,
-            {id: idValue, item: newItem}]
+            {id: idValue, item: newItem, checked: false}]
         )
         
         input.value = ''
