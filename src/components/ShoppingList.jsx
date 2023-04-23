@@ -125,8 +125,8 @@ export default function ShoppingList() {
     
     return (
       <>
-        {clearList()}        
-        <ul>{createItem()}</ul>        
+        {clearList()}
+        <ul className="teste">{createItem()}</ul>                
         {inputItem()}
       </>
     ) 

@@ -84,6 +84,11 @@ input:focus {
     font-size: 1.5rem; 
 }
 
+ul {
+    max-height: 70vh;
+    overflow-x: scroll;
+}
+
 @media (max-width: 1200px) {
     .items {
         width: 700px;
@@ -106,10 +111,30 @@ input:focus {
 
 @media (max-width: 650px) {
     .items {
-        width: 300px;
+        width: 94%;
+        margin: 0 2%;
     }
 
     .new-item {
-        width: 300px;
+        width: 94%;
+        margin: 15px 2%;
+    }
+}
+
+@media (max-height: 590px) {
+    ul {
+        max-height: 60vh;
+    }
+}
+
+@media (max-height: 450px) {
+    ul {
+        max-height: 50vh;
+    }
+}
+
+@media (max-height: 350px) {
+    ul {
+        max-height: 35vh;
     }
 }
