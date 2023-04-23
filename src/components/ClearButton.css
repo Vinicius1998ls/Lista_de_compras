@@ -1,0 +1,27 @@
+.button-line{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+button {    
+    height: 25px;
+    width: 70px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    margin-right: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+}
+
+@media (max-width: 650px) {
+    .button-line {
+        margin-top: 5px;
+    }
+
+    button {
+        margin-right: 10px;
+    }
+}

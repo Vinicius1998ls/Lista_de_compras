@@ -3,9 +3,10 @@ import { useState } from "react";
 import ItemName from "./ItemName";
 
 import './ShoppingList.css'
+import './ClearButton.css'
 
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import { faCheck, faXmark, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faXmark, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 export default function ShoppingList() { 
 
@@ -109,10 +110,23 @@ export default function ShoppingList() {
         setItemsList(itemsList.filter(item =>
             item.id !== id))
     }
+
+    function clearList() {
+      return (
+        <div className='button-line'>
+            <button onClick={handleClear} ><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon> Limpar</button>
+        </div>
+      )
+    }
+
+    function handleClear() {
+      setItemsList([])
+    }
     
     return (
       <>
-        <ul>{createItem()}</ul>
+        {clearList()}        
+        <ul>{createItem()}</ul>        
         {inputItem()}
       </>
     ) 

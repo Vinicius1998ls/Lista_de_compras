@@ -7,10 +7,6 @@ body {
     justify-content: center;
 }
 
-ul {
-    margin-top: 15px;
-}
-
 .items {
     display: grid;
     grid-template-columns: 4fr 2fr;
@@ -53,7 +49,7 @@ ul {
     width: 600px;
     height: 35px;
     grid-template-columns: 4fr 1fr;
-    margin: 25px 10px;
+    margin: 15px 10px;
 }
 
 input {
