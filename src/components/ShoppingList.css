@@ -86,7 +86,7 @@ input:focus {
 
 ul {
     max-height: 70vh;
-    overflow-x: scroll;
+    overflow-y: scroll;
 }
 
 @media (max-width: 1200px) {
@@ -121,19 +121,19 @@ ul {
     }
 }
 
-@media (max-height: 590px) {
+@media (max-height: 700px) {
     ul {
         max-height: 60vh;
     }
 }
 
-@media (max-height: 450px) {
+@media (max-height: 500px) {
     ul {
         max-height: 50vh;
     }
 }
 
-@media (max-height: 350px) {
+@media (max-height: 370px) {
     ul {
         max-height: 35vh;
     }
